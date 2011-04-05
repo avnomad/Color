@@ -1,0 +1,8 @@
+syntax: regexp
+Debug/*
+Release/*
+ipch/*
+syntax: glob
+Color mkIII.opensdf
+Color mkIII.sdf
+Color mkIII.suo
