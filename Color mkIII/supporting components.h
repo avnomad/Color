@@ -25,6 +25,49 @@ T clamp(T valueToClamp, T minValue, T maxValue)
 	return valueToClamp;
 } // end function clamp
 
+
+template<typename T>
+struct toUnsigned
+{
+	typedef T type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<char>
+{
+	typedef unsigned char type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<signed char>
+{
+	typedef unsigned char type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<signed short>
+{
+	typedef unsigned short type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<signed int>
+{
+	typedef unsigned int type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<signed long>
+{
+	typedef unsigned long type;
+}; // end struct toUnsigned
+
+template< >
+struct toUnsigned<signed long long>
+{
+	typedef unsigned long long type;
+}; // end struct toUnsigned
+
 } // end namespace Utility
 
 namespace RGBA
@@ -60,6 +103,11 @@ struct color_limits
 	\warning the color conversion uses the same formulas as OpenGL but with
 	the actual bit width of the type, not the minimum defined by the standard.
 	\todo may need to fix the above.
+	\remark The conversion is done in such a way that if you convert an object \a src of type
+	S to an object \a dst of type D then calling the appropriate glColor for each of them
+	will have the same result. However if S is a signed integral type, src has a nonpositive
+	value and D is an unsigned integral type, then there is no possible value for dst that will
+	have the same effect as src while clamping is disabled for OpenGL.
 */
 template<typename DestinationType>
 class ConvertColor
@@ -73,13 +121,15 @@ public:
 	{
 		cout << "\373 ";
 		convertedValue = sourceValue;
-	} // end ConvertColor conversion constructor
+	} // end ConvertColor conversion constructor                                                                                                                                    
 
 	template<typename SourceType>
 	inline ConvertColor(SourceType sourceValue) throw()
 	{
 		typedef std::numeric_limits<DestinationType> dLimits;
 		typedef std::numeric_limits<SourceType> sLimits;
+		typedef std::numeric_limits<toUnsigned<DestinationType>::type> udLimits;
+		typedef std::numeric_limits<toUnsigned<SourceType>::type> usLimits;
 
 		if(!sLimits::is_integer && !dLimits::is_integer) // floating to floating (no temps)
 		{
@@ -90,20 +140,17 @@ public:
 		long double temp; // intermediate results in maximum accuracy.
 
 		if(sLimits::is_integer && sLimits::is_signed)
-			if(dLimits::is_integer && !dLimits::is_signed)
-				temp = ((long double)sourceValue-sLimits::min()) / (sLimits::max()-sLimits::min());	// denominator 2^b-1
+			if(dLimits::is_integer && !dLimits::is_signed && sourceValue < 0)	// there is no conversion from s<0 to u 
+				temp = 0.0l;		// such that s and u would wield the same effect during rendering without clamping
 			else
-				temp = (2.0l*sourceValue+1) / (sLimits::max()-sLimits::min());	// denominator 2^b-1
+				temp = (2.0l*sourceValue+1) / usLimits::max();	// denominator 2^b-1
 		if(sLimits::is_integer && !sLimits::is_signed)
 			temp = (long double)sourceValue / sLimits::max();	// denominator 2^b-1
 		if(!sLimits::is_integer)
 			temp = (long double)sourceValue;
 
 		if(dLimits::is_integer && dLimits::is_signed)
-			if(sLimits::is_integer && !dLimits::is_signed)
-				convertedValue = (DestinationType)((dLimits::max()-dLimits::min())*temp+dLimits::min());
-			else
-				convertedValue = (DestinationType)(0.5l*((dLimits::max()-dLimits::min())*temp-1));
+			convertedValue = (DestinationType)(0.5l*(udLimits::max()*temp-1));
 		if(dLimits::is_integer && !dLimits::is_signed)
 			convertedValue = (DestinationType)(dLimits::max()*temp);
 		if(!dLimits::is_integer)

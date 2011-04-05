@@ -3,6 +3,7 @@ using std::cout;
 using std::endl;
 
 #include <iomanip>
+using std::setprecision;
 
 #include <cstdlib>
 using std::system;
@@ -14,9 +15,18 @@ using std::system;
 using namespace Utility;
 using namespace RGBA;
 
-#define test(A,B) cout << #A " -> " #B "  " << (long double)std::numeric_limits<A>::min() << " -> " << (long double)ConvertColor<B>(std::numeric_limits<A>::min()) << endl; \
-					cout << #A " -> " #B "  " << (long double)std::numeric_limits<A>::max() << " -> " << (long double)ConvertColor<B>(std::numeric_limits<A>::max()) << endl; \
-					cout << #A " -> " #B "  " << (long double)((std::numeric_limits<A>::min()+std::numeric_limits<A>::max())/2) << " -> " << (long double)ConvertColor<B>((A)((std::numeric_limits<A>::min()+std::numeric_limits<A>::max())/2)) << endl; \
+#define test(A,B) cout  << setprecision(20); \
+					cout << #A " -> " #B "  "; \
+					if(ConvertColor<B>(color_limits<A>::min()) == color_limits<B>::min() || std::numeric_limits<A>::is_integer && std::numeric_limits<B>::is_integer && std::numeric_limits<A>::is_signed && !std::numeric_limits<B>::is_signed && ConvertColor<B>(color_limits<A>::min()) == 0) \
+						cout << "\n"; \
+					else \
+						cout << (long double)color_limits<A>::min() << " -> " << (long double)ConvertColor<B>(color_limits<A>::min()) << endl; \
+					cout << #A " -> " #B "  "; \
+					if(ConvertColor<B>(color_limits<A>::max()) == color_limits<B>::max()) \
+						cout << "\n"; \
+					else \
+						cout << (long double)color_limits<A>::max() << " -> " << (long double)ConvertColor<B>(color_limits<A>::max()) << endl; \
+					cout << #A " -> " #B "  " << (long double)((color_limits<A>::min()+color_limits<A>::max())/2) << " -> " << (long double)ConvertColor<B>((A)((color_limits<A>::min()+color_limits<A>::max())/2)) << endl; \
 
 /// \author Anogeianakis Vaptistis
 
