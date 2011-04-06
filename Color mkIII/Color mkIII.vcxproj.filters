@@ -26,5 +26,8 @@
     <ClInclude Include="supporting components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

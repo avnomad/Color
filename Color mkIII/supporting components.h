@@ -157,7 +157,7 @@ public:
 			convertedValue = (DestinationType)temp;
 	} // end ConvertColor conversion constructor
 
-	inline operator DestinationType() throw()
+	inline operator DestinationType() const throw()
 	{
 		return convertedValue;
 	} // end function operator DestinationType
