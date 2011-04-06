@@ -68,20 +68,20 @@ public:
 
 
 	// property functions
-#define property_function(Name,Index,Const,Class) \
-	Class<ComponentType,clamp,treatIntegralAsUChar> Name() Const \
+#define property_function(Name,Index,Const,Constant) \
+	Property<ComponentType,clamp,treatIntegralAsUChar,Constant> Name() Const \
 	{ \
-		return Class<ComponentType,clamp,treatIntegralAsUChar>(&components[Index]); \
+		return Property<ComponentType,clamp,treatIntegralAsUChar,Constant>(&components[Index]); \
 	}
 
-	property_function(red,0, ,Property)
-	property_function(red,0,const,ConstProperty)
-	property_function(green,1, ,Property)
-	property_function(green,1,const,ConstProperty)
-	property_function(blue,2, ,Property)
-	property_function(blue,2,const,ConstProperty)
-	property_function(alpha,3, ,Property)
-	property_function(alpha,3,const,ConstProperty)
+	property_function(red,0, ,false)
+	property_function(red,0,const,true)
+	property_function(green,1, ,false)
+	property_function(green,1,const,true)
+	property_function(blue,2, ,false)
+	property_function(blue,2,const,true)
+	property_function(alpha,3, ,false)
+	property_function(alpha,3,const,true)
 #undef property_function
 
 	// does a template declaration of a copy constructor suppress generation of the default?

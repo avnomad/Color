@@ -315,30 +315,31 @@ using namespace RGBA;
 //	return 0;
 //} // end function main
 
+	/* test color */
 
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	Color<> c1(0.5);
-	Color<float> c2(192,255);
-	Color<int> c3(1.0,0.75,0.0);
-	Color<> c4(255,0,0,128);
+	//Color<> c1(0.5);
+	//Color<float> c2(192,255);
+	//Color<int> c3(1.0,0.75,0.0);
+	//Color<> c4(255,0,0,128);
 
-	c2.red() = 1.0;
-	c2.green() = c1.green();
-	c4 = c1;
-	c2.blue() = 0.0;
-	c4.alpha() = 32;
+	//c2.red() = 1.0;
+	//c2.green() = c1.green();
+	//c4 = c1;
+	//c2.blue() = 0.0;
+	//c4.alpha() = 32;
 
-	glColor4bv(Color<signed char>(c1));
-	glRectf(-0.75,-0.75,0.25,0.25);
-	glColor4fv(c2);
-	glRectf(-0.25,-0.25,0.75,0.75);
-	glColor4iv(c3);
-	glRectf(-0.75,0.75,0.25,-0.25);
-	glColor4ubv(c4);
-	glRectf(-0.25,0.25,0.75,-0.75);
+	//glColor4bv(Color<signed char>(c1));
+	//glRectf(-0.75,-0.75,0.25,0.25);
+	//glColor4fv(c2);
+	//glRectf(-0.25,-0.25,0.75,0.75);
+	//glColor4iv(c3);
+	//glRectf(-0.75,0.75,0.25,-0.25);
+	//glColor4ubv(c4);
+	//glRectf(-0.25,0.25,0.75,-0.75);
 
 	glutSwapBuffers();
 } // end function display
@@ -377,6 +378,51 @@ int main(int argc, char **argv)
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
 	// application initialization
+	Color<unsigned char> c1;
+	const Color<unsigned char> cc1;
+	Color<short> c2;
+	const Color<short> cc2;
+	Color<float> c3;
+	const Color<float> cc3;
+
+	// size OK!
+	//cout << sizeof(c1) << endl;
+	//cout << sizeof(cc1) << endl;
+	//cout << sizeof(c2) << endl;
+	//cout << sizeof(cc2) << endl;
+	//cout << sizeof(c3) << endl;
+	//cout << sizeof(cc3) << endl;
+
+	// set from constant OK!
+	//c1.red() = (unsigned char)10;
+	//c1.green() = -100;
+	//c1.blue() = (unsigned short)20;
+	//c1.alpha() = 0.5;
+
+	//cc1.red() = (unsigned char)10;
+	//cc1.green() = 100;
+	//cc1.blue() = (unsigned short)20;
+	//cc1.alpha() = 0.5;
+
+	//c2.red() = (short)10;
+	//c2.green() = -100;
+	//c2.blue() = (unsigned short)20;
+	//c2.alpha() = 0.5;
+
+	//cc2.red() = (short)10;
+	//cc2.green() = -100;
+	//cc2.blue() = (unsigned short)20;
+	//cc2.alpha() = 0.5;
+
+	//c3.red() = 0.1;
+	//c3.green() = -100;
+	//c3.blue() = (unsigned short)20;
+	//c3.alpha() = 0.5;
+
+	//cc3.red() = (short)10;
+	//cc3.green() = -100;
+	//cc3.blue() = (unsigned short)20;
+	//cc3.alpha() = 0.5;
 
 	// event handling initialization
 	glutDisplayFunc(display);
