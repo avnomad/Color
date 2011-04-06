@@ -103,6 +103,7 @@ public:
 		this->green() = original.green();
 		this->blue() = original.blue();
 		this->alpha() = original.alpha();
+		return *this;
 	} // end function operator=
 
 	operator const ComponentType *() const

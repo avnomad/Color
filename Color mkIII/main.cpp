@@ -384,8 +384,11 @@ int main(int argc, char **argv)
 	const Color<short> cc2;
 	Color<float> c3;
 	const Color<float> cc3;
+	Color<unsigned char> c11;
+	Color<short> c22;
+	Color<float> c33;
 
-	// size OK!
+	/* size OK! */
 	//cout << sizeof(c1) << endl;
 	//cout << sizeof(cc1) << endl;
 	//cout << sizeof(c2) << endl;
@@ -393,36 +396,103 @@ int main(int argc, char **argv)
 	//cout << sizeof(c3) << endl;
 	//cout << sizeof(cc3) << endl;
 
-	// set from constant OK!
-	//c1.red() = (unsigned char)10;
-	//c1.green() = -100;
-	//c1.blue() = (unsigned short)20;
-	//c1.alpha() = 0.5;
+	/* assignment from constants OK! */
+	c1.red() = (unsigned char)10;
+	c1.green() = -100;
+	c1.blue() = (unsigned short)20;
+	c1.alpha() = 0.5;
 
 	//cc1.red() = (unsigned char)10;
 	//cc1.green() = 100;
 	//cc1.blue() = (unsigned short)20;
 	//cc1.alpha() = 0.5;
 
-	//c2.red() = (short)10;
-	//c2.green() = -100;
-	//c2.blue() = (unsigned short)20;
-	//c2.alpha() = 0.5;
+	c2.red() = (short)10;
+	c2.green() = -100;
+	c2.blue() = (unsigned short)20;
+	c2.alpha() = 0.5;
 
 	//cc2.red() = (short)10;
 	//cc2.green() = -100;
 	//cc2.blue() = (unsigned short)20;
 	//cc2.alpha() = 0.5;
 
-	//c3.red() = 0.1;
-	//c3.green() = -100;
-	//c3.blue() = (unsigned short)20;
-	//c3.alpha() = 0.5;
+	c3.red() = 0.1;
+	c3.green() = -100;
+	c3.blue() = (unsigned short)20;
+	c3.alpha() = 0.5;
 
 	//cc3.red() = (short)10;
 	//cc3.green() = -100;
 	//cc3.blue() = (unsigned short)20;
 	//cc3.alpha() = 0.5;
+
+	/* assignment from self OK! */
+	c1.red() = c1.green();
+	c2.blue() = c2.alpha();
+	c3.red() = c3.alpha();
+	c1.red() = c1.red();
+	c2.green() = c2.green();
+	c3.blue() = c3.blue();
+
+	//cc1.red() = cc1.green();
+	//cc2.blue() = cc2.alpha();
+	//cc3.red() = cc3.red();
+
+	/* assignment from other OK! */
+	c11.red() = c1.red();
+	c11.green() = c2.green();
+	c11.blue() = c3.blue();
+
+	//cc1.red() = c1.red();
+	//cc1.green() = c2.green();
+	//cc1.blue() = c3.blue();
+
+	c22.red() = c1.red();
+	c22.green() = c2.green();
+	c22.blue() = c3.blue();
+
+	//cc2.red() = c1.red();
+	//cc2.green() = c2.green();
+	//cc2.blue() = c3.blue();
+
+	c33.red() = c1.red();
+	c33.green() = c2.green();
+	c33.blue() = c3.blue();
+
+	//cc3.red() = c1.red();
+	//cc3.green() = c2.green();
+	//cc3.blue() = c3.blue();
+
+	/* get OK! */
+	unsigned char x1 = c1.red();
+	short x2 = c2.red();
+	float x3 = c3.red();
+
+	x1 = cc1.red();
+	x2 = cc2.red();
+	x3 = cc3.red();
+
+	x1 = c2.red();
+	x2 = c3.red();
+	x3 = c1.red();
+
+	c1 = c1;
+	c2 = c2;
+	c3 = c3;
+	c11 = c1;
+	c22 = c2;
+	c33 = c3;
+	c1 = c2;
+	c2 = c3;
+	c3 = c1;
+
+	//cc1 = c1;
+	//cc2 = c2;
+	//cc3 = c3;
+	//cc1 = c2;
+	//cc2 = c3;
+	//cc3 = c1;
 
 	// event handling initialization
 	glutDisplayFunc(display);
