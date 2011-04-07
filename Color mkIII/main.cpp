@@ -402,6 +402,8 @@ int main(int argc, char **argv)
 	c1.blue() = (unsigned short)20;
 	c1.alpha() = 0.5;
 
+	cout << c1.red() << ',' << c1.green() << ',' << c1.blue() << ',' << c1.alpha() << endl;
+
 	//cc1.red() = (unsigned char)10;
 	//cc1.green() = 100;
 	//cc1.blue() = (unsigned short)20;
@@ -412,6 +414,8 @@ int main(int argc, char **argv)
 	c2.blue() = (unsigned short)20;
 	c2.alpha() = 0.5;
 
+	cout << c2.red() << ',' << c2.green() << ',' << c2.blue() << ',' << c2.alpha() << endl;
+
 	//cc2.red() = (short)10;
 	//cc2.green() = -100;
 	//cc2.blue() = (unsigned short)20;
@@ -421,6 +425,8 @@ int main(int argc, char **argv)
 	c3.green() = -100;
 	c3.blue() = (unsigned short)20;
 	c3.alpha() = 0.5;
+
+	cout << c3.red() << ',' << c3.green() << ',' << c3.blue() << ',' << c3.alpha() << endl;
 
 	//cc3.red() = (short)10;
 	//cc3.green() = -100;
@@ -493,6 +499,7 @@ int main(int argc, char **argv)
 	//cc1 = c2;
 	//cc2 = c3;
 	//cc3 = c1;
+
 
 	// event handling initialization
 	glutDisplayFunc(display);

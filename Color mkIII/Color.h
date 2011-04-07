@@ -20,7 +20,7 @@ public:
 	/**
 		if clamp == false it leaves the object uninitialized.
 	*/
-	Color()
+	Color() throw()
 	{
 		if(clamp)
 		{
@@ -30,21 +30,21 @@ public:
 	} // end default Color constructor
 
 	template<typename ArgType>
-	Color(ArgType intensity)
+	Color(ArgType intensity) throw()
 	{
 		red() = green() = blue() = intensity;
 		alpha() = 1.0;
 	} // end Color constructor
 
 	template<typename ArgType>
-	Color(ArgType intensity, ArgType alpha)
+	Color(ArgType intensity, ArgType alpha) throw()
 	{
 		red() = green() = blue() = intensity;
 		this->alpha() = alpha;
 	} // end Color constructor
 
 	template<typename ArgType>
-	Color(ArgType red, ArgType green, ArgType blue)
+	Color(ArgType red, ArgType green, ArgType blue) throw()
 	{
 		this->red() = red;
 		this->green() = green;
@@ -53,7 +53,7 @@ public:
 	} // end Color constructor
 
 	template<typename ArgType>
-	Color(ArgType red, ArgType green, ArgType blue, ArgType alpha)
+	Color(ArgType red, ArgType green, ArgType blue, ArgType alpha) throw()
 	{
 		this->red() = red;
 		this->green() = green;
@@ -61,7 +61,7 @@ public:
 		this->alpha() = alpha;
 	} // end Color constructor
 
-	~Color()
+	~Color() throw()
 	{
 		// empty
 	} // end ~Color destructor
@@ -69,7 +69,7 @@ public:
 
 	// property functions
 #define property_function(Name,Index,Const,Constant) \
-	Property<ComponentType,clamp,treatIntegralAsUChar,Constant> Name() Const \
+	Property<ComponentType,clamp,treatIntegralAsUChar,Constant> Name() Const  throw() \
 	{ \
 		return Property<ComponentType,clamp,treatIntegralAsUChar,Constant>(&components[Index]); \
 	}
@@ -88,7 +88,7 @@ public:
 	// anyway default copy constructor will work just fine.
 
 	template<typename T,bool C,bool AsUC>
-	Color(const Color<T,C,AsUC> &original)
+	Color(const Color<T,C,AsUC> &original) throw()
 	{
 		this->red() = original.red();
 		this->green() = original.green();
@@ -97,7 +97,7 @@ public:
 	} // end Color copy constructor
 
 	template<typename T,bool C,bool AsUC>
-	Color &operator=(const Color<T,C,AsUC> &original)
+	Color &operator=(const Color<T,C,AsUC> &original) throw()
 	{
 		this->red() = original.red();
 		this->green() = original.green();
@@ -106,7 +106,7 @@ public:
 		return *this;
 	} // end function operator=
 
-	operator const ComponentType *() const
+	operator const ComponentType *() const throw()
 	{
 		return components;
 	} // end function operator const ComponentType *

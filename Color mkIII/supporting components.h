@@ -119,7 +119,6 @@ class ConvertColor
 public:
 	inline ConvertColor(DestinationType sourceValue) throw()
 	{
-		cout << "\373 ";
 		convertedValue = sourceValue;
 	} // end ConvertColor conversion constructor                                                                                                                                    
 
