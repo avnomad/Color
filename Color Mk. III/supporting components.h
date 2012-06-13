@@ -1,19 +1,19 @@
 //	Copyright (C) 2011-2012 Vaptistis Anogeianakis <el05208@mail.ntua.gr>
 /*
- *	This file is part of Color mkIII.
+ *	This file is part of Color Mk. III.
  *
- *	Color mkIII is free software: you can redistribute it and/or modify
+ *	Color Mk. III is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
- *	Color mkIII is distributed in the hope that it will be useful,
+ *	Color Mk. III is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with Color mkIII.  If not, see <http://www.gnu.org/licenses/>.
+ *	along with Color Mk. III.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef SUPPORTING_COMPONENTS_H

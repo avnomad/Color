@@ -73,13 +73,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color mkIII" (
-    mkdir "$(LibBuildInstallDir)\Headers\Color mkIII"
+      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color Mk. III" (
+    mkdir "$(LibBuildInstallDir)\Headers\Color Mk. III"
 )
 
-copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Color.h"
-copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Property.h"
-copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color mkIII\supporting components.h"
+copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Color.h"
+copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Property.h"
+copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\supporting components.h"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -95,13 +95,13 @@ copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Colo
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color mkIII" (
-    mkdir "$(LibBuildInstallDir)\Headers\Color mkIII"
+      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color Mk. III" (
+    mkdir "$(LibBuildInstallDir)\Headers\Color Mk. III"
 )
 
-copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Color.h"
-copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Property.h"
-copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color mkIII\supporting components.h"
+copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Color.h"
+copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Property.h"
+copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\supporting components.h"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -120,13 +120,13 @@ copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Colo
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color mkIII" (
-    mkdir "$(LibBuildInstallDir)\Headers\Color mkIII"
+      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color Mk. III" (
+    mkdir "$(LibBuildInstallDir)\Headers\Color Mk. III"
 )
 
-copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Color.h"
-copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Property.h"
-copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color mkIII\supporting components.h"
+copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Color.h"
+copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Property.h"
+copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\supporting components.h"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -145,13 +145,13 @@ copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Colo
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color mkIII" (
-    mkdir "$(LibBuildInstallDir)\Headers\Color mkIII"
+      <Command>IF NOT EXIST "$(LibBuildInstallDir)\Headers\Color Mk. III" (
+    mkdir "$(LibBuildInstallDir)\Headers\Color Mk. III"
 )
 
-copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Color.h"
-copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color mkIII\Property.h"
-copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color mkIII\supporting components.h"
+copy "$(ProjectDir)\Color.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Color.h"
+copy "$(ProjectDir)\Property.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\Property.h"
+copy "$(ProjectDir)\supporting components.h" "$(LibBuildInstallDir)\Headers\Color Mk. III\supporting components.h"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
