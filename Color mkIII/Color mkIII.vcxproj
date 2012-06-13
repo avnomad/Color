@@ -34,7 +34,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\Property Sheets\optimization flags.props" />
+    <Import Project="$(PropSheetDir)\optimization flags.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -66,6 +66,11 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Property.h" />
     <ClInclude Include="supporting components.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color class, conversion and property design.jpg" />
+    <None Include="notes about assembly output.jpg" />
+    <None Include="tests design.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
