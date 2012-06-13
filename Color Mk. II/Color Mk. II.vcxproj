@@ -65,12 +65,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Color Names.cpp" />
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color Names.h" />
     <ClInclude Include="Color.h" />
   </ItemGroup>
   <ItemGroup>
